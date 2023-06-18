@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <form action="/feedback" method="POST">
+        <input type="hidden" name="message" value="{{ message }}">
+        <input type="hidden" id="response" name="response" value="">
+        <input type="hidden" id="predicted_response" name="predicted_response" value="{{ response }}">
+        <input type="button" value="Positive" onclick="saveFeedback('positive')">
+        <input type="submit" value="Negative">
+    </form>
+    <div>
+        <h3>Response:</h3>
+        <p>{{ response }}</p>
+    </div>
+    <script>
+        function saveFeedback(response) {
+            document.getElementById('response').value = response;
+            document.forms[0].submit();
+        }
+    </script>
+</body>
+</html>
